@@ -1,24 +1,27 @@
 <div class="container">
-    <h1 class="mt-4">Jovenes Emprendedores Colombianos</h1>
+    <div class="card m-5" style="background-color:#0ae98a; height: 70px;"><h2 class="text-center m-2" style="color:white">Jóvenes Emprendedores Colombianos</h2></div>
 
     <table class="table table-bordered mt-4">
         <thead>
-            <tr style="--bs-table-bg: #0ae98a; --bs-table-color: white;">
-                <th scope="col">Nombre</th>
-                <th scope="col">Foto</th>
-                <th scope="col">Genero</th>
-                <th scope="col">Pregrado</th>
-            </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let emprendedor of emprendedores" (click)="seleccionarEmprendedor(emprendedor)">
-                <td>{{ emprendedor.nombre }}</td>
-                <td><img [src]="emprendedor.foto_url" alt="{{ emprendedor.nombre }}" style="width: 50px; height: auto;"></td>
-                <td>{{ emprendedor.genero }}</td>
-                <td>{{ emprendedor.pregrado }}</td>
-            </tr>
+            <div class="row">
+            @for(emprendedor of emprendedores; track emprendedor.id){
+                <div class="col">
+                    <div class="card" style="height: 300px;" [routerLink]="['/emprendedores', emprendedor.id]">
+                        
+                        <td><img [src]="emprendedor.foto_url" class="d-block mx-auto img-fluid" alt="{{ emprendedor.nombre }}" style="width: 50px; height: auto;"></td>
+                        <td><strong>{{ emprendedor.nombre }}</strong></td>
+                        <td><strong>Género: </strong>{{ emprendedor.genero }}</td>
+                        <td><strong>Pregrado: </strong>{{ emprendedor.pregrado }}</td>
+                    </div>
+                </div>
+                
+                
+            }
+            </div>
         </tbody>
     </table>
     
-    <app-emprendedor-detail *ngIf="emprendedorSeleccionado" [emprendedor]="emprendedorSeleccionado"></app-emprendedor-detail>
+    
 </div>

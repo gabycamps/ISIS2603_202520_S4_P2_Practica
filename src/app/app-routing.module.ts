@@ -4,9 +4,9 @@ import { EmprendedorListComponent } from './emprendedor/emprendedor-list/emprend
 import { EmprendedorDetailComponent } from './emprendedor/emprendedor-detail/emprendedor-detail.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/emprendedores', pathMatch: 'full'},
-  {path: '/emprendedores', component: EmprendedorListComponent},
-  {path: '/emprendedores/:id', component: EmprendedorDetailComponent}
+  {path: '', redirectTo: 'emprendedores', pathMatch: 'full'},
+  {path: 'emprendedores', component: EmprendedorListComponent},
+  {path: 'emprendedores/:id', component: EmprendedorDetailComponent}
 ];
 
 @NgModule({

@@ -1,17 +1,24 @@
-<div *ngIf="emprendedorDetail" style="margin-bottom: 2rem;">
-    <h3>{{emprendedorDetail.nombre}}</h3>
-    <div>
-        <div style="height: 300px; display: inline-block;">
-            <img [src]="emprendedorDetail.foto_url" alt="{{ emprendedorDetail.nombre }}" style="width: 80%; ">
-        </div>
+<div class="card m-5" style="height: 500px;">
+    <div *ngIf="emprendedor" style="margin-bottom: 2rem;">
         
-        <div style="width: 50%; display: inline-block;">
-            <p><strong>Pregrado: </strong> {{emprendedorDetail.pregrado}} </p>
-            <p><strong>Genero: </strong> {{emprendedorDetail.genero}} </p>
-            <p><strong>Emprendimientos: </strong></p>
-            <ul>
-                <li *ngFor="let emprendimiento of emprendedorDetail.emprendimientos">{{ emprendimiento }}</li>
-            </ul>
+        <div class="row">
+            <div class="col"><div style="height: 300px; display: inline-block;">
+                <img [src]="emprendedor.foto_url" alt="{{ emprendedor.nombre }}" style="width: 80%; margin-left: 40%;"/>
+            </div></div>
+            <div class="col" style="display: inline-block; vertical-align: top;">
+            <div class="card m-5" style="background-color:#0ae98a; height: 70px;"><h2 class="text-center m-2" style="color:white">{{emprendedor.nombre}}</h2></div>
+
+            <div style="width: 50%; display: inline-block;">
+                <p><strong style="color: #295944;">Pregrado: </strong> {{emprendedor.pregrado}} </p>
+                <p><strong style="color: #295944;">Género: </strong> {{emprendedor.genero}} </p>
+                <p><strong style="color: #295944;">Emprendimientos: </strong></p>
+                <ul>
+                    <li *ngFor="let emprendimiento of emprendedor.emprendimientos">{{ emprendimiento }}</li>
+                </ul>
+
+                <div class="text-left" ><button class="btn btn-success mt-3" [routerLink]="['/emprendedores']">Volver al listado</button></div>
+            </div>
+            </div>
         </div>
     </div>
 </div>
